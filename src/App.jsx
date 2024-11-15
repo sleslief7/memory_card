@@ -9,7 +9,7 @@ export default function App() {
   const [imgClicks, setImgClicks] = useState(new Set());
 
   useEffect(() => {
-    fetch('/api/emojis?search=smile')
+    fetch('https://www.emoji.family/api/emojis?search=smile')
       .then((response) => response.json())
       .then((data) =>
         setData(

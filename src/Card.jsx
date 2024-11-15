@@ -6,7 +6,7 @@ export default function Card(props) {
       <img
         id={data.hexcode}
         className="emoji"
-        src={`/api/emojis/${data.hexcode}/fluent/svg`}
+        src={`https://www.emoji.family/api/emojis/${data.hexcode}/fluent/svg`}
         style={{ width: '10rem', height: '10rem' }}
         alt={data.annotation}
         title={data.annotation}
