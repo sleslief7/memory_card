@@ -26,15 +26,19 @@ function handleImgClick(e, props) {
     setBestScore,
     wholeData,
     setData,
+    setIsGameOn,
   } = props;
   let id = e.target.id;
   let newScore = score + 1;
+
+  setIsGameOn(true);
 
   if (imgClicks.has(id)) {
     alert(`You clicked the same emoji twice, you lost. Score: ${score}`);
     newScore = 0;
     setScore(newScore);
     setImgClicks(new Set());
+    setIsGameOn(false);
   } else if (newScore === wholeData.length) {
     alert(`You won the memory game. Score: ${newScore}`);
     setBestScore(newScore);
@@ -42,6 +46,7 @@ function handleImgClick(e, props) {
     setScore(newScore);
     setImgClicks(new Set());
     setData(shuffleArray(wholeData));
+    setIsGameOn(false);
     return;
   } else {
     setImgClicks(imgClicks.add(id));

@@ -36,3 +36,17 @@ body {
   font-weight: bold;
   text-align: center;
 }
+
+#category-container {
+  margin-bottom: 15px;
+}
+#category-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px;
+}
+#category-select {
+  padding: 2px 5px;
+  border: none;
+  border-radius: 5px;
+}
