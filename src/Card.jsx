@@ -4,9 +4,9 @@ export default function Card(props) {
   return (
     <div className="card" onClick={(e) => handleImgClick(e, props)}>
       <img
-        id={data.hexcode}
+        id={data.code}
         className="emoji"
-        src={`https://www.emoji.family/api/emojis/${data.hexcode}/fluent/svg`}
+        src={data.image}
         style={{ width: '10rem', height: '10rem' }}
         alt={data.annotation}
         title={data.annotation}

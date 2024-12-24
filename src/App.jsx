@@ -9,18 +9,14 @@ export default function App() {
   const [imgClicks, setImgClicks] = useState(new Set());
 
   useEffect(() => {
-    fetch('/.netlify/functions/fetchEmoji?search=smile')
+    fetch('https://api.api-ninjas.com/v1/emoji?group=smileys_emotion', {
+      method: 'GET',
+      headers: { 'X-Api-Key': import.meta.env.VITE_API_KEY },
+    })
       .then((response) => response.json())
-      .then((data) =>
-        setData(
-          data.filter(
-            (el) =>
-              !el.annotation.includes('eyes') &&
-              !el.annotation.includes('cat') &&
-              !el.hexcode.includes('1f608')
-          )
-        )
-      )
+      .then((data) => {
+        setData(data);
+      })
       .catch((error) => console.error('Error fetching emojis:', error));
   }, []);
 
@@ -34,7 +30,7 @@ export default function App() {
         {data &&
           data.map((d) => (
             <Card
-              key={d.hexcode}
+              key={d.code}
               data={d}
               wholeData={data}
               setData={setData}
